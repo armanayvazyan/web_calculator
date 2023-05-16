@@ -7,6 +7,14 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Code Analysis') {
+            steps {
+                sh '''
+                   qodana \
+                   --fail-threshold 5
+                   '''
+            }
+        }
         stage('Unit Tests') {
             steps {
                 sh 'npm run test:unit'

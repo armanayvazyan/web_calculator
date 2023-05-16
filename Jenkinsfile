@@ -5,7 +5,7 @@ pipeline {
                       -v "${WORKSPACE}":/data/project
                       --entrypoint=""
                       '''
-                 image 'jetbrains/qodana-<linter>'
+                 image 'jetbrains/qodana-js'
               }
     }
     tools {nodejs "20.2"}

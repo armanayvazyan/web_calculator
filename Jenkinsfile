@@ -7,6 +7,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage("Code Analysis") {
+            steps {
+                sh 'qodana init'
+            }
+        }
         stage('Unit Tests') {
             steps {
                 sh 'npm run test:unit'

@@ -1,5 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+                 args '''
+                      -v "${WORKSPACE}":/data/project
+                      --entrypoint=""
+                      '''
+                 image 'jetbrains/qodana-<linter>'
+              }
+    }
     tools {nodejs "20.2"}
     stages {
         stage('Install Packages') {

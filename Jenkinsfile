@@ -11,16 +11,12 @@ pipeline {
             steps {
                 sh 'npm run test:unit'
             }
-        }
-        stage('Integration Tests') {
             steps {
-                sh 'npm run test:integration'
-            }
-        }
-        stage('E2E Tests') {
-            steps {
-                sh 'npm run test:e2e'
-            }
+                            sh 'npm run test:integration'
+                        }
+                        steps {
+                                        sh 'npm run test:e2e'
+                                    }
         }
     }
 }

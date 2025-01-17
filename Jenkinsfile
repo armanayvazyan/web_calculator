@@ -34,6 +34,7 @@ pipeline {
         }
         stage('E2E Tests') {
             steps {
+                sh 'sudo apt-get update && sudo apt-get install -y libgconf-2-4 libnss3 libx11-xcb1 libxcb-dri3-0 libxss1 libgobject-2.0-0'
                 sh 'npm run test:e2e'
             }
         }
